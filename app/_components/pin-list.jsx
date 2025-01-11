@@ -1,10 +1,7 @@
 async function getData() {
   const res = await fetch(`${process.env.API_BASE_URL}/pin`);
-  // The return value is *not* serialized
-  // You can return Date, Map, Set, etc.
 
   if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
     throw new Error("Failed to fetch data");
   }
 
@@ -12,9 +9,6 @@ async function getData() {
 }
 
 export default async function PinList() {
-  //   const fetchPin = await fetch(`${process.env.API_BASE_URL}/pin`);
-
-  //   const pins = await fetchPin.json();
   const pins = await getData();
 
   console.log("🚀 ~ PinList ~ pins:", pins);
