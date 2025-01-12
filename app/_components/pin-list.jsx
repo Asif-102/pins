@@ -1,6 +1,8 @@
 async function getData() {
   try {
-    const res = await fetch(`${process.env.API_BASE_URL}/pin`);
+    const res = await fetch(`${process.env.API_BASE_URL}/pin`, {
+      cache: "no-store",
+    });
 
     if (!res.ok) {
       throw new Error("Failed to fetch data");
