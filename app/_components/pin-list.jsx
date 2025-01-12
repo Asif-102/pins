@@ -19,14 +19,18 @@ export default async function PinList() {
 
   return (
     <ul className="flex">
-      {pins?.map((pin) => (
-        <li key={pin?.id} className="border p-1 rounded m-1">
-          <h2 className="text-2xl">{pin?.title}</h2>
-          <p className="text-gray-600">{pin?.description}</p>
-          <p>{pin?.type}</p>
-          <p>{pin?.content}</p>
-        </li>
-      ))}
+      {Array.isArray(pins) ? (
+        pins.map((pin) => (
+          <li key={pin?.id} className="border p-1 rounded m-1">
+            <h2 className="text-2xl">{pin?.title}</h2>
+            <p className="text-gray-600">{pin?.description}</p>
+            <p>{pin?.type}</p>
+            <p>{pin?.content}</p>
+          </li>
+        ))
+      ) : (
+        <p>No pins available</p>
+      )}
     </ul>
   );
 }
