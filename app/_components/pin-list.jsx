@@ -1,7 +1,7 @@
 async function getData() {
   try {
     const res = await fetch(`${process.env.API_BASE_URL}/pin`, {
-      cache: "no-store",
+      cache: "no-cache",
     });
 
     if (!res.ok) {
