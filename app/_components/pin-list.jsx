@@ -8,7 +8,7 @@ async function getData() {
 
     return res.json();
   } catch (err) {
-    throw new Error(err.message);
+    return { error: true, message: error?.message };
   }
 }
 
