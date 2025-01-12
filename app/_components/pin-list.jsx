@@ -1,11 +1,15 @@
 async function getData() {
-  const res = await fetch(`${process.env.API_BASE_URL}/pin`);
+  try {
+    const res = await fetch(`${process.env.API_BASE_URL}/pin`);
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
+    if (!res.ok) {
+      throw new Error("Failed to fetch data");
+    }
+
+    return res.json();
+  } catch (err) {
+    throw new Error(err.message);
   }
-
-  return res.json();
 }
 
 export default async function PinList() {
